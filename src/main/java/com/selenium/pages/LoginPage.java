@@ -5,11 +5,13 @@ import org.openqa.selenium.By;
 
 public class LoginPage extends BasePage {
 
+    // Locators
     private By username = By.name("user_name");
     private By password = By.name("user_password");
     private By loginButton = By.id("submit");
     private By errorMessage = By.cssSelector(".alert.alert-danger");
 
+    // Actions
     public void setUsername(String username) {
         set(this.username, username);
     }

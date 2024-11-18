@@ -7,12 +7,14 @@ import java.time.Duration;
 
 public class CategoriaPage extends BasePage {
 
+    //Nueva categoria
     private By linkCategoria = By.xpath("//a[contains(text(),'Categorías')]");
     private By nuevaCategoria = By.cssSelector(".btn.btn-success");
     private By nombreCategoria = By.id("nombre");
     private By descCategoria = By.id("descripcion");
     private By guardarCategoria = By.id("guardar_datos");
 
+    //Editar categoria
     private By editNombreCategoria = By.id("mod_nombre");
     private By editDescCategoria = By.id("mod_descripcion");
     private By editCategoriaButton = By.id("actualizar_datos");
@@ -20,21 +22,25 @@ public class CategoriaPage extends BasePage {
 
     private By idModal = By.id("myModal2");
 
+    //Esperar a que cargue el modal
     public void waitUntilModalLoads() {
         var wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOfElementLocated(idModal));
     }
 
+    //Boton editar categoria en tabla
     public void clickEditCategoriaButton() {
         By editCategoria = By.xpath("//a[@data-id='13']");
         click(editCategoria);
     }
 
+    //Eliminar categoria
     public void clickDeleteCategoriaButton() {
         By deleteCategoria = By.xpath("//a[@data-id='13']//following-sibling::a");
         click(deleteCategoria);
     }
 
+    // Nueva categoria
     public void clickCategoria() {
         click(linkCategoria);
     }
@@ -55,6 +61,7 @@ public class CategoriaPage extends BasePage {
         click(guardarCategoria);
     }
 
+    // Editar categoria
     public void setEditNombreCategoria(String nombre) {
         set(editNombreCategoria, nombre);
     }
